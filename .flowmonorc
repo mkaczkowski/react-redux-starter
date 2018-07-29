@@ -1,0 +1,8 @@
+{
+  "create-symlinks": {
+    "ignore": ["eslint", "jest"]
+  },
+    "create-stubs": {
+      "dependencies": ["immutable-js","immutable"]
+    }
+}

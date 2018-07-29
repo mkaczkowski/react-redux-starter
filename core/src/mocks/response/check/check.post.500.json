@@ -1,0 +1,6 @@
+{
+  "status": 500,
+  "body": {
+    "error": "mocked error"
+  }
+}

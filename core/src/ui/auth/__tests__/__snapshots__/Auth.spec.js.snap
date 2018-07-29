@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Auth - dumb should display content 1`] = `<div />`;
+
+exports[`Auth - dumb should display loader 1`] = `Loading....`;

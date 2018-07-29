@@ -1,0 +1,15 @@
+{
+  "name": "react-redux-monorepo-starter-app-app",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "react-redux-monorepo-starter-app-components": "^0.0.4",
+    "react-redux-monorepo-starter-app-core": "^0.0.4",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  },
+  "devDependencies": {
+    "react-redux-monorepo-starter-app-scripts": "^0.0.4",
+    "flow-bin": "^0.75.0"
+  }
+}

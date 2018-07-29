@@ -1,0 +1,19 @@
+{
+  "FIELD.EMAIL.LABEL"                    : "Your e-mail address",
+
+  "BUTTON.NEXT"                          : "Start learning now!",
+  "BUTTON.BACK"                          : "Back",
+  "BUTTON.CHANGE"                        : "Change",
+
+  "ERROR.VALIDATION.REQUIRED"            : "Field is required",
+  "ERROR.VALIDATION.EMAIL_IS_INVALID"    : "Email is invalid",
+
+  "ERROR.API.UNEXPECTED"                 : "Unexpected error. Please try again.",
+  "ERROR.API.BAD_CREDENTIALS"            : "Cannot log in. Try again later.",
+
+  "SECTION.CCN.FORM.TITLE"               : "Verify your free account",
+  "SECTION.CCN.FORM.DESCRIPTION"         : "Great choice! Create a free account that will {{ strong:save and track your progress }}",
+  "SECTION.CCN.INFOBOX.TITILE"           : "This is a free registration",
+  "SECTION.CCN.INFOBOX.SUBTITLE"         : "Why am I asked for my credit card details? ",
+  "SECTION.CCN.INFOBOX.DESCRIPTION"      : "It's for verification purposes. When you sign up for the free trial, {{ productName }} may charge and refund one or more variable amounts (up to {{ minimalPrice }}) to your account, in order to verify the card is valid, and that you are the authorised and legitimate cardholder. These amounts will appear on your card statement along with the corresponding refunds."
+}

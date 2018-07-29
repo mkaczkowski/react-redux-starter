@@ -1,0 +1,7 @@
+{
+  "status": 200,
+  "body": {
+    "action": "wait",
+     "wait_time":"3000"
+  }
+}

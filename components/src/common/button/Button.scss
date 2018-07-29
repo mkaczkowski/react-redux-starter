@@ -1,0 +1,222 @@
+$unit:1rem;
+$color-black:black;
+$color-background: white !default;
+$color-text: #5f5f5f !default;
+$color-text-secondary: gray !default;
+
+$color-primary: indigo !default;
+$color-primary-dark: indigo !default;
+$color-primary-contrast: indigo !default;
+
+$color-secondary: yellow !default;
+$color-secondary-dark: yellow !default;
+$color-secondary-contrast: yellow !default;
+
+$color-info: blue !default;
+$color-info-dark: blue !default;
+$color-info-contrast: blue !default;
+
+$button-height: $unit * 3.6 !default;
+$button-weight: 500 !default;
+$button-disabled-text-color: rgba($color-black, 0.26) !default;
+$button-disabled-background-color: rgba($color-black, 0.12) !default;
+$button-squared-icon-margin: $unit * .6 !default;
+$button-squared-min-width: 9 * $unit !default;
+
+/*********/
+/* LEVEL */
+
+//PRIMARY
+$button-primary-color-contrast: $color-primary-contrast !default;
+$button-primary-color-hover: darken($color-primary, 20%) !default;
+$button-primary-color: $color-primary !default;
+
+//SECONDARY
+$button-secondary-color-contrast: $color-secondary-contrast !default;
+$button-secondary-color-hover: darken($color-secondary, 10%) !default;
+$button-secondary-color: $color-secondary !default;
+
+//INFO
+$button-info-color-contrast: $color-info-contrast !default;
+$button-info-color-hover: darken($color-info, 10%) !default;
+$button-info-color: $color-info !default;
+
+/*********/
+/* SIZES */
+
+//SMALL
+$button-font-size-small: $unit * 1 !default;
+$button-line-height-small: $unit * 1.5 !default;
+$button-padding-small: $unit*0.4 $unit*1 !default;
+$button-border-radius-small: 1 * $unit !default;
+
+//MEDIUM
+$button-font-size-medium: $unit * 1.6 !default;
+$button-line-height-medium: $unit * 2.3 !default;
+$button-padding-medium: $unit*0.7 $unit*1.9 !default;
+$button-border-radius-medium: 2 * $unit !default;
+
+//LARGE
+$button-font-size-large: $unit * 2.2 !default;
+$button-line-height-large: $unit * 4 !default;
+$button-padding-large: $unit*1.5 $unit*2.5 !default;
+$button-border-radius-large: 3.4 * $unit !default;
+
+
+.button {
+  position: relative;
+  > input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 0.1px;
+    height: 0.1px;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    opacity: 0;
+  }
+}
+
+%button {
+  font-weight: $button-weight;
+  letter-spacing: 0;
+  position: relative;
+  display: inline-block;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  border: 0;
+  outline: none;
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  > span:not([data-react-toolbox="tooltip"]) {
+    display: inline-block;
+    line-height: inherit;
+    vertical-align: top;
+  }
+  > svg {
+    display: inline-block;
+    width: 1em;
+    height: $button-height;
+    font-size: 120%;
+    vertical-align: top;
+    fill: currentColor;
+  }
+  > * {
+    pointer-events: none;
+  }
+  &[disabled] {
+    color: $button-disabled-text-color;
+    pointer-events: none;
+    cursor: auto;
+  }
+}
+
+%squared {
+  min-width: $button-squared-min-width;
+  .icon {
+    margin-right: $button-squared-icon-margin;
+    font-size: 120%;
+    vertical-align: middle;
+  }
+  > svg {
+    margin-right: .5 * $unit;
+  }
+}
+
+%solid {
+  &[disabled] {
+    background-color: $button-disabled-background-color;
+  }
+}
+
+.raised {
+  @extend %button;
+  @extend %squared;
+  @extend %solid;
+}
+
+.flat {
+  @extend %button;
+  @extend %squared;
+  background: transparent;
+}
+
+.fluid {
+  @extend %button;
+  width:100%;
+}
+
+
+.loading{
+  span{
+    visibility: hidden;
+  }
+
+  &:before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    margin-left: -10px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    border-top-color: inherit;
+    animation: spinner .6s linear infinite;
+  }
+}
+
+@keyframes spinner {
+  to {transform: rotate(360deg);}
+}
+
+@mixin btn-colors($name, $color, $background, $hover) {
+  .#{$name}:not([disabled]) {
+    &.raised,
+    &.floating {
+      color: $color;
+      background: $background;
+    }
+    &.flat,
+    &.toggle {
+      color: $background;
+      &:focus:not(:active) {
+        background: $hover;
+      }
+    }
+    &:hover {
+      background: $hover;
+    }
+  }
+}
+@mixin btn-sizes($name, $fontSize, $lineHeight, $padding, $border-radius) {
+  .#{$name}:not([disabled]) {
+    font-size: $fontSize;
+    line-height: $lineHeight;
+    padding: $padding;
+    border-radius: $border-radius;
+  }
+}
+
+
+@include btn-colors("primary", $button-primary-color-contrast, $button-primary-color, $button-primary-color-hover);
+@include btn-colors("secondary", $button-secondary-color-contrast, $button-secondary-color, $button-secondary-color-hover);
+@include btn-colors("info", $button-info-color-contrast, $button-info-color, $button-info-color-hover);
+
+@include btn-sizes("small", $button-font-size-small, $button-line-height-small, $button-padding-small, $button-border-radius-small);
+@include btn-sizes("medium", $button-font-size-medium, $button-line-height-medium, $button-padding-medium, $button-border-radius-medium);
+@include btn-sizes("large", $button-font-size-large, $button-line-height-large, $button-padding-large, $button-border-radius-large);

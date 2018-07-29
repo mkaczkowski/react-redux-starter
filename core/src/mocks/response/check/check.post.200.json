@@ -1,0 +1,7 @@
+{
+  "status": 200,
+  "body": {
+    "action": "success",
+    "url": "http://google/com"
+  }
+}
