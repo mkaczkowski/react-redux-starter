@@ -12,7 +12,7 @@ Complete monorepo boilerplate with React, Redux and Redux-Saga
 * [PWA](https://developers.google.com/web/progressive-web-apps/) - progressive Web App ready
 * [Flow](https://github.com/facebook/flow) - adds static typing to JavaScript
 * [Webpack (v4.15.1)](https://webpack.js.org) with plugins - a module bundler
-* [Sass] (https://sass-lang.com) - CSS preprocessor, which adds special features
+* [Sass](https://sass-lang.com) - CSS preprocessor, which adds special features
 * [React Snap](https://github.com/stereobooster/react-snap) - prerendering your app for load time and SEO optimization
 * [Jest (v.23)](https://facebook.github.io/jest/) - complete testing solution
 * [Storybook](https://github.com/storybooks/storybook) - interactive UI component dev & test
@@ -26,13 +26,13 @@ Tweak React components in real time ⚛️⚡️
 
 Clone repository to your local workspace:
 ```bash
-git clone https://github.com/mkaczkowski/react-redux-monorepo-starter-starter.git
+git clone https://github.com/mkaczkowski/react-redux-monorepo-starter.git
 ```
 
 Install project dependencies using npm or yarn:
 
 ```bash
-cd react-redux-monorepo-starter-starter
+cd react-redux-monorepo-starter
 npm install
 ```
 
