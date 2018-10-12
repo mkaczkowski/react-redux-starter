@@ -3,5 +3,5 @@
   "npmClient": "yarn",
   "version": "independent",
   "useWorkspaces": true,
-  "packages": ["core", "components", "scripts", "products/*"]
+  "packages": ["lib-core", "lib-components", "lib-scripts", "packages/*"]
 }

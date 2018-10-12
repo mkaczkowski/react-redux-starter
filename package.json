@@ -5,46 +5,26 @@
   "author": "Mariusz Kaczkowski",
   "private": true,
   "workspaces": [
-    "scripts",
-    "core",
-    "components",
-    "products/*"
+    "lib-scripts",
+    "lib-core",
+    "lib-components",
+    "packages/*"
   ],
   "scripts": {
     "clean": "lerna clean && rm -rf node_modules",
     "bootstrap": "lerna bootstrap --use-workspaces",
-    "start": "cross-env PRODUCT_NAME=sample scripts start:dev",
-    "build": "cross-env PRODUCT_NAME=sample scripts build:production",
+    "start": "cross-env PRODUCT_NAME=lib-sample scripts start:dev",
+    "build": "cross-env PRODUCT_NAME=lib-sample scripts build:production",
     "test": "scripts test",
     "test:update": "scripts test:update",
     "serve": "serve -s -p 5000 build",
-    "storybook": "start-storybook -c components/.storybook -p 6006",
-    "flow-typed": "flow-mono install-types --ignoreDeps=peer --overwrite"
+    "storybook": "start-storybook -c lib-components/.storybook -p 6006",
+    "flow-typed": "flow-mono install-types --ignoreDeps=peer --overwrite",
+    "typecheck": "tsc",
+    "typecheck:watch": "yarn typecheck -- --watch"
   },
   "devDependencies": {
     "jest": "^23.4.0",
     "lerna": "^2.11.0"
-  },
-  "browserslist": {
-    "development": [
-      "last 2 chrome versions",
-      "last 2 firefox versions",
-      "last 2 edge versions"
-    ],
-    "production": [
-      ">0.25%",
-      "not op_mini all",
-      "ie 11"
-    ]
-  },
-  "reactSnap": {
-    "inlineCss": true,
-    "skipThirdPartyRequests": true,
-    "preloadImages": false,
-    "viewport": {
-      "width": 480,
-      "height": 850
-    },
-    "sourceMaps": false
   }
 }

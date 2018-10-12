@@ -1,0 +1,12 @@
+{
+    "name": "@types/connected-react-router",
+    "version": "4.5.0",
+    "typings": null,
+    "description": "Stub TypeScript definitions entry for connected-react-router, which lacks its own types definitions",
+    "main": "",
+    "scripts": {},
+    "author": "",
+    "dependencies": {
+        "connected-react-router": "*"
+    }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "react-redux-monorepo-starter-app-app",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "lib-core": "^0.0.4",
+    "lib-components": "^0.0.4",
+    "connected-react-router": "^4.5.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-hot-loader": "^4.3.11",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1"
+  },
+  "devDependencies": {
+    "@types/react-redux": "^6.0.9",
+    "@types/react-router-dom": "^4.3.1",
+    "flow-bin": "^0.75.0",
+    "lib-scripts": "^0.0.4"
+  }
+}
