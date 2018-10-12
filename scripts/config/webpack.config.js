@@ -6,6 +6,8 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware');
 const noopServiceWorkerMiddleware = require('react-dev-utils/noopServiceWorkerMiddleware');
+const WebpackNotifierPlugin = require('webpack-notifier');
+
 const publicUrl = '';
 
 const getClientEnvironment = require('./env', publicUrl);
@@ -47,27 +49,25 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
 
 module.exports = {
   mode: 'development',
-  devtool: 'cheap-module-source-map',
-  entry: [path.resolve('config/polyfills'), 'react-dev-utils/webpackHotDevClient', paths.appIndexJs],
+  devtool: shouldUseSourceMap ? 'cheap-module-source-map' : false,
+  entry: ['react-dev-utils/webpackHotDevClient', paths.appIndexJs],
   output: {
     path: path.resolve('.tmp'),
     filename: '[name].js',
     publicPath: '/',
-    pathinfo: true,
-    devtoolModuleFilenameTemplate: info => path.resolve(info.absoluteResourcePath).replace(/\\/g, '/'),
   },
   optimization: {
     splitChunks: {
       chunks: 'all',
       name: 'vendors',
     },
-    runtimeChunk: true,
+    runtimeChunk: false,
   },
   resolve: {
     modules: ['node_modules', path.resolve(paths.root, 'node_modules')].concat(
       process.env.NODE_PATH.split(path.delimiter).filter(Boolean)
     ),
-    extensions: ['.js', '.json'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
     alias: {
       '@core': paths.coreSrc,
       '@components': paths.componentsSrc,
@@ -79,17 +79,22 @@ module.exports = {
     strictExportPresence: true,
     rules: [
       { parser: { requireEnsure: false } },
-      {
+      shouldUseSourceMap && {
         enforce: 'pre',
         test: /\.js$/,
+        use: ['source-map-loader'],
+      },
+      {
+        enforce: 'pre',
+        test: /\.(tsx?)$/,
         loader: 'eslint-loader',
         options: {
           emitWarning: true,
-          emitError: false,
         },
         include: [paths.appSrc, paths.coreSrc, paths.componentsSrc],
         exclude: [/[/\\\\]node_modules[/\\\\]/],
       },
+
       {
         oneOf: [
           {
@@ -101,7 +106,7 @@ module.exports = {
             },
           },
           {
-            test: /\.js$/,
+            test: /\.(tsx?)|(jsx?)$/,
             include: [paths.appSrc, paths.coreSrc, paths.componentsSrc],
             exclude: [/[/\\\\]node_modules[/\\\\]/],
             use: [
@@ -113,6 +118,7 @@ module.exports = {
                   plugins: [
                     'react-hot-loader/babel',
                     [
+                      //"babel-plugin-module-resolver": "^3.1.1",
                       'module-resolver',
                       {
                         alias: {
@@ -127,20 +133,10 @@ module.exports = {
               },
             ],
           },
-
-          {
-            test: /\.css$/,
-            include: /(flexboxgrid2)/,
-            use: getStyleLoaders({
-              importLoaders: 1,
-              sourceMap: shouldUseSourceMap,
-            }),
-          },
           {
             test: /\.(scss|sass)$/,
             use: getStyleLoaders({ importLoaders: 2, sourceMap: shouldUseSourceMap }, 'sass-loader'),
           },
-
           {
             test: /\.svg$/,
             use: [
@@ -175,6 +171,7 @@ module.exports = {
     new HTMLWebpackPlugin({
       template: paths.indexHtml,
     }),
+    new WebpackNotifierPlugin(),
   ],
   devServer: {
     // clientLogLevel: 'none',

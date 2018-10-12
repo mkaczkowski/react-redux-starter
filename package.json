@@ -22,7 +22,6 @@
     "flow-typed": "flow-mono install-types --ignoreDeps=peer --overwrite"
   },
   "devDependencies": {
-    "flow-bin": "^0.75.0",
     "jest": "^23.4.0",
     "lerna": "^2.11.0"
   },

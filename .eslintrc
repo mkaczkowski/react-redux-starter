@@ -1,29 +1,50 @@
 {
   "parser": "babel-eslint",
-  "extends": ["react-app",
-    "plugin:flowtype/recommended",
-    "plugin:jsx-a11y/recommended"],
-  "plugins": [
-    "flowtype",
-    "jsx-a11y"
-  ],
+  "extends": "airbnb",
+  "plugins": ["typescript", "jest"],
   "env": {
     "browser": true,
-    "es6": true
-  },
-  "rules": {
-    "no-console": "warn", // airbnb is using warn
-    "no-return-assign": "off", // airbnb use error, handy for react ref assign.
-    "react/jsx-filename-extension": ["error", { "extensions": [".js"] }], // airbnb is using .jsx
-    "react/no-danger": "error", // airbnb is using warn
-    "react/no-direct-mutation-state": "error",  // airbnb is disabling this rule,
-    "jsx-a11y/href-no-hash": "off", //workaround for  warning about jsx-a11y/href-no-hash
-    "jsx-a11y/label-has-for": "off",
-    "jsx-a11y/anchor-is-valid": ["warn", { "aspects": ["invalidHref"] }]
+    "es6": true,
+    "jest/globals": true
   },
   "settings": {
-    "flowtype": {
-      "onlyFilesWithFlowAnnotation": true
+    "import/resolver": {
+      "node": true,
+      "eslint-import-resolver-typescript": true
     }
-  }
+  },
+  "rules": {
+    "import/extensions": [0, "never", { "ts": "never" }],
+    "arrow-parens": "off",
+    "comma-dangle": "off",
+    "implicit-arrow-linebreak": "off",
+    "lines-between-class-members": "off",
+    "max-len": ["error", { "code": 120 }],
+    "no-confusing-arrow": "off",
+    "no-console": "error", // airbnb is using warn
+    "no-return-assign": "off", // airbnb use error, handy for react ref assign.
+    "object-curly-newline": "off",
+    "react/destructuring-assignment": "off",
+    "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }], // airbnb is using .jsx
+    "react/jsx-max-props-per-line": ["error", { "maximum": 7 }], // airbnb is disabling this rule
+    "react/jsx-one-expressioen-per-line": "off",
+    "react/no-danger": "error", // airbnb is using warn
+    "react/no-direct-mutation-state": "error", // airbnb is disabling this rule
+    "react/prop-types": "off", // disable prop tyles check
+    "react/require-default-props": "off",
+    "react/sort-comp": "off",
+    "spaced-comment": "off",
+    "prefer-destructuring": "off",
+    "jsx-a11y/label-has-for": "off",
+    "jsx-a11y/label-has-associated-control": "off"
+  },
+  "overrides": [
+    {
+      "files": ["**/*.ts","**/*.tsx"],
+      "parser": "typescript-eslint-parser",
+      "rules": {
+        "no-undef": "off"
+      }
+    }
+  ]
 }
