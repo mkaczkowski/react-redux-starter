@@ -1,4 +1,4 @@
-//@flow
+
 import * as React from 'react';
 import { Formik } from 'formik';
 import { validation } from '@core/utils/validation/validators';

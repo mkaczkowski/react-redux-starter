@@ -1,4 +1,4 @@
-// @flow
+
 import { connect } from 'react-redux';
 import PrivateRoute from './PrivateRoute';
 import { selectors as authSelectors } from '@core/reducers/auth';

@@ -1,4 +1,4 @@
-// @flow
+
 import * as React from 'react';
 import { Field } from 'formik';
 import { prepareInput } from '@components/form/inputs/FormField';

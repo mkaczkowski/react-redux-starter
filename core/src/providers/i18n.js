@@ -1,4 +1,4 @@
-// @flow
+
 import * as React from 'react';
 import type { ILogger } from '@core/modules/logger';
 import Logger from '@core/modules/logger';

@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-// @flow
+
 /*
  * Logger Util
  *

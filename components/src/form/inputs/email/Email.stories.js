@@ -1,4 +1,4 @@
-//@flow
+
 import React from 'react';
 import FormField from '@components/form/inputs/FormField';
 import { host } from 'storybook-host';

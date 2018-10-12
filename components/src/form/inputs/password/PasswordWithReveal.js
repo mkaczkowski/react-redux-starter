@@ -1,4 +1,4 @@
-// @flow
+
 import * as React from 'react';
 import Button from '@components/common/button/Button';
 import './PasswordWithReveal.scss';
@@ -18,7 +18,7 @@ class PasswordWithRevealInput extends React.Component<any, { visible: boolean }>
     const { Component, ...props } = this.props;
     const { visible } = this.state;
 
-    const label = visible ? props.t('BUTTON.HIDE') : props.t('BUTTON.SHOW');
+    const label = visible ? 'BUTTON.HIDE') : 'BUTTON.SHOW');
 
     const componentProps = {
       ...props,

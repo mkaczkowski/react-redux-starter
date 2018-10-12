@@ -1,4 +1,4 @@
-// @flow
+
 import * as React from 'react';
 import type { InputConfig } from '@core/utils/validation/validators';
 import { Field } from 'formik';
@@ -15,7 +15,7 @@ export const INPUT_CONFIG: InputConfig = {
 export const EmailInputComponent = ({ renderProp, ...props }: any) => (
   <Field name={INPUTS.EMAIL}
          component={InputField}
-         label={props.t('LABEL.EMAIL')}
+         label={'LABEL.EMAIL'}
          maxLength={100}
          {...props} />
 );

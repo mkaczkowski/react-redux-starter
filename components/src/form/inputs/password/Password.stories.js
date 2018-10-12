@@ -1,4 +1,4 @@
-//@flow
+
 import React from 'react';
 import Password from './Password';
 import FormField from '@components/form/inputs/FormField';

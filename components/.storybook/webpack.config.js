@@ -76,14 +76,6 @@ module.exports = {
             ],
           },
           {
-            test: /\.modernizrrc.js$/,
-            use: ['modernizr-loader'],
-          },
-          {
-            test: /\.modernizrrc(\.json)?$/,
-            use: ['modernizr-loader', 'json-loader'],
-          },
-          {
             test: /\.(jpe?g|jpg|gif|png|woff|woff2|eot|ttf|webp)$/,
             use: [{ loader: 'file-loader' }],
           },
@@ -99,7 +91,6 @@ module.exports = {
       '@components': path.resolve(__dirname, '../../components/src/'),
       '@lib': path.resolve(__dirname, '../../core/src/lib/'),
       '@story': path.resolve(__dirname, '../.storybook'),
-      modernizr$: path.resolve(__dirname, '../../.modernizrrc'),
     },
   },
 };

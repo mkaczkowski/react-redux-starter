@@ -1,4 +1,4 @@
-//@flow
+
 import React, { PureComponent } from 'react';
 import classnames from 'classnames';
 import Check from './Check';

@@ -1,4 +1,4 @@
-//@flow
+
 import React from 'react';
 import RememberMeInput from './RememberMe';
 import { INPUTS } from '@core/constants/inputs';

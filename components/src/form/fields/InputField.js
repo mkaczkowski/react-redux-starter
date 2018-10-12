@@ -1,4 +1,4 @@
-// @flow
+
 import * as React from 'react';
 import type { FieldProps } from 'formik';
 import type { InputProps } from '@components/common/input/Input';

@@ -73,7 +73,6 @@ module.exports = {
       '@components': paths.componentsSrc,
       '@assets': paths.appAssets,
       '@story': paths.storybook,
-      modernizr$: path.resolve(paths.root, '.modernizrrc'),
     },
   },
   module: {
@@ -100,14 +99,6 @@ module.exports = {
               limit: 10000,
               name: '[name].[hash:8].[ext]',
             },
-          },
-          {
-            test: /\.modernizrrc.js$/,
-            use: ['modernizr-loader'],
-          },
-          {
-            test: /\.modernizrrc(\.json)?$/,
-            use: ['modernizr-loader', 'json-loader'],
           },
           {
             test: /\.js$/,

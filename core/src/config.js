@@ -1,4 +1,4 @@
-//@flow
+
 import { replacePlaceholders } from '@core/utils/metadata';
 import { getCurrentYear } from '@core/utils/date/date';
 

@@ -1,4 +1,4 @@
-// @flow
+
 import * as React from 'react';
 import type { InputConfig } from '@core/utils/validation/validators';
 import { getValidators } from '@core/utils/validation/validators';

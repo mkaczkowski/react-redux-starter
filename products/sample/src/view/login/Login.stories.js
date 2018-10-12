@@ -1,4 +1,4 @@
-//@flow
+
 
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
@@ -7,7 +7,7 @@ import { action } from '@storybook/addon-actions';
 import Login from './Login';
 import { inputs } from '@components/form/login/LoginForm';
 
-const props: any = {
+const props = {
   t,
   children: undefined,
   onError: action('onError'),

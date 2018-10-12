@@ -1,4 +1,4 @@
-// @flow
+
 import Logger from '@core/modules/logger';
 import axios from 'axios';
 import type { ILogger } from '@core/modules/logger';

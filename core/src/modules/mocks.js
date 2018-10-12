@@ -1,4 +1,4 @@
-// @flow
+
 export type MocksConfig = {};
 
 export class Mocks {

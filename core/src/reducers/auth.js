@@ -1,4 +1,4 @@
-//@flow
+
 import { fromJS } from 'immutable';
 import { prepareActions, prepareReducers } from '@core/utils/redux';
 import { createSelector } from 'reselect';

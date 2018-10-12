@@ -1,4 +1,4 @@
-//@flow
+
 import axios from 'axios';
 import CONFIG, { __DEV__ } from '@core/config';
 

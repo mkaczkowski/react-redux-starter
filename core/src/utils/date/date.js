@@ -1,4 +1,4 @@
-// @flow
+
 import _map from 'lodash/map';
 import _padStart from 'lodash/padStart';
 import _range from 'lodash/range';

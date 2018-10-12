@@ -1,4 +1,4 @@
-// @flow
+
 import * as React from 'react';
 import type { InputConfig } from '@core/utils/validation/validators';
 import INPUTS from '@components/constants/inputs';
@@ -16,7 +16,7 @@ export const PasswordInputComponent = (props: any) => (
     type="password"
     name={INPUTS.PASSWORD}
     component={InputField}
-    label={props.t('LABEL.PASSWORD')}
+    label={'LABEL.PASSWORD'}
     maxLength={100}
     {...props}
   />

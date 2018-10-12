@@ -1,4 +1,4 @@
-// @flow
+
 import * as React from 'react';
 import type { ActionType } from '@core/constants/flowTypes';
 import CONFIG from '@core/config';

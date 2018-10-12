@@ -1,4 +1,4 @@
-// @flow
+
 import { put, takeLatest, call } from 'redux-saga/effects';
 import { actions as authActions } from '@core/reducers/auth';
 import { login } from '@core/api/auth';

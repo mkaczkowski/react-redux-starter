@@ -1,4 +1,4 @@
-// @flow
+
 import { ERROR_CODES } from '@core/constants/errorCodes';
 
 export type ErrorCodeType = string | boolean;

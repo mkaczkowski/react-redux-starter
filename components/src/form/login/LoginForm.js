@@ -1,4 +1,4 @@
-//@flow
+
 import * as React from 'react';
 import { ERROR_CODES } from '@core/constants/errorCodes';
 import FormField from '@components/form/inputs/FormField';
@@ -23,9 +23,9 @@ export const inputs = {
   [INPUTS.REMEMBER_ME]: RememberMeInput({}),
 };
 
-const LoginForm = ({ render, ...props }: any) => (
+const LoginForm = ({ render, ...props }) => (
   <Formify inputs={inputs} {...props}>
-    {({ onFormSubmit, inputProps, ...formifyProps }: any) => (
+    {({ onFormSubmit, inputProps, ...formifyProps }) => (
       <form onSubmit={onFormSubmit}>
         <FormField name={INPUTS.EMAIL} {...inputProps} />
         <FormField name={INPUTS.PASSWORD} {...inputProps} />
@@ -35,7 +35,7 @@ const LoginForm = ({ render, ...props }: any) => (
         ) : (
           <div className="login-actions">
             <Button type="submit" primary loading={formifyProps.isSubmitting} disabled={formifyProps.isSubmitting}>
-              {props.t('BUTTON.LOGIN')}
+              BUTTON.LOGIN
             </Button>
           </div>
         )}

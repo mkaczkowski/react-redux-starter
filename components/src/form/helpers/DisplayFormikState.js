@@ -1,4 +1,4 @@
-// @flow
+
 import * as React from 'react';
 import type { FormikProps } from 'formik';
 

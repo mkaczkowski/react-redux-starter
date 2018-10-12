@@ -7,5 +7,3 @@ export default Loadable({
     return <div>Loading!</div>;
   },
 });
-
-// LoadableBar.preload();
