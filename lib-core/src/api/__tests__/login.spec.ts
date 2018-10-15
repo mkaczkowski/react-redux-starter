@@ -14,6 +14,8 @@ describe('Login Api', () => {
       expect(data).toBeDefined();
       expect(data.id).toBeDefined();
       expect(data.username).toBeDefined();
+
+      //TODO optionally we can check snapshot
     });
   });
 });
