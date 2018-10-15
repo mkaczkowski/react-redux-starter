@@ -6,7 +6,7 @@ import login from '../api/login';
 import Logger from '../modules/logger';
 import { User } from '../model/User';
 import notify from '../utils/error/errorNotifier';
-import { LoginFormPayload } from '../model/form/LoginFormPayload';
+import { LoginFormPayload } from '../model/LoginFormPayload';
 
 const logger = Logger.getInstance('LoginSaga');
 

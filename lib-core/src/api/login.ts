@@ -1,16 +1,18 @@
 import axios, { AxiosResponse } from 'axios';
 import { User } from '../model/User';
-import { LoginFormPayload } from '../model/form/LoginFormPayload';
+import { LoginFormPayload } from '../model/LoginFormPayload';
 
-const login = async (value: LoginFormPayload): Promise<User> => {
+export interface LoginApiData {
+  user: LoginFormPayload;
+}
+
+export const login = async (payload: LoginFormPayload): Promise<User> => {
   const url = '/users/sign_in';
-  const data = {
+  const data: LoginApiData = {
     user: {
-      ...value,
+      ...payload,
     },
   };
   const response: AxiosResponse = await axios.post(url, data);
   return response.data;
 };
-
-export default login;

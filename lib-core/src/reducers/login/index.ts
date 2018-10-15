@@ -2,9 +2,9 @@ import { fromJS } from 'immutable';
 import { prepareActions, prepareReducers } from 'lib-core/src/utils/redux';
 import { Action, ActionFunction1 } from 'redux-actions';
 import { createSelector } from 'reselect';
-import { LoginFormPayload } from '../model/form/LoginFormPayload';
-import { ImmutableState, ModuleState } from '../model/State';
-import { User } from '../model/User';
+import { LoginFormPayload } from '../../model/LoginFormPayload';
+import { ImmutableState } from '../../model/State';
+import { User } from '../../model/User';
 
 /* ------------- INITIAL STATE ------------- */
 export type LoginState = {
@@ -12,12 +12,12 @@ export type LoginState = {
   user?: User | null;
 };
 
-export type State = ImmutableState<LoginState>;
-
-export const initialState: State = fromJS({
+export const initialState: LoginState = {
   isLoading: false,
   user: null,
-});
+};
+
+export type State = ImmutableState<LoginState>;
 
 /* ------------- ACTIONS ------------- */
 export type LoginActions = {
@@ -32,7 +32,7 @@ export const actions = <LoginActions>prepareActions(
     ['loginSuccessAction']: payload => payload.trim().toUpperCase(),
   },
   //By default payload is passed unmodified
-  ['login', true, true],
+  ['login', true, true]
   // ['login'] :: means only loginAction will be created
   // ['login' , true ] :: loginAction and loginSuccessAction will be created
   // ['login' , true, true ] :: loginAction, loginSuccessAction, loginFailedAction
@@ -57,7 +57,7 @@ export const reducer: any = prepareReducers(
     [<any>actions.loginFailedAction]: loginFailedReducer,
     [<any>actions.loginSuccessAction]: loginSuccessReducer,
   },
-  initialState,
+  fromJS(initialState)
 );
 
 /* ------------- Selectors ------------- */

@@ -1,6 +1,6 @@
 import { actions } from '../login';
-import { LoginFormPayload } from '../../model/form/LoginFormPayload';
-import { User } from '../../model/User';
+import { LoginFormPayload } from '../../../model/LoginFormPayload';
+import { User } from '../../../model/User';
 
 describe('login actions', () => {
   describe('loginAction', () => {

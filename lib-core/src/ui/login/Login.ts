@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { ActionFunction1 } from 'redux-actions';
-import { LoginFormPayload } from '../../model/form/LoginFormPayload';
+import { LoginFormPayload } from '../../model/LoginFormPayload';
 
 export type LoginProps = {
   isLoading?: boolean;
