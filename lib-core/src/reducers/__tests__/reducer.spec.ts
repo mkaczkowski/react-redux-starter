@@ -1,6 +1,5 @@
 import { fromJS } from 'immutable';
-import { reducer, actions, State } from '../login';
-import { LoginFormPayload } from '../../model/form/LoginFormPayload';
+import { loginReducer, loginFailedReducer, loginSuccessReducer, State } from '../login';
 import { User } from '../../model/User';
 
 describe('login reducer', () => {
@@ -13,35 +12,37 @@ describe('login reducer', () => {
     });
   });
 
-  it('should return the initial state', () => {
-    const expectedResult = state;
-    expect(reducer(undefined, {})).toEqual(expectedResult);
-  });
-
   describe('loginAction', () => {
     it('should handle the login action correctly', () => {
-      const fixture: LoginFormPayload = { username: 'usernmae_test', password: 'pass' };
-
+      const result = loginReducer(state);
       const expectedResult = {
         isLoading: true,
         user: null,
       };
+      expect(result.toJS()).toEqual(expectedResult);
+    });
+  });
 
-      const result = reducer(state, actions.loginAction(fixture));
+  describe('loginFailedAction', () => {
+    it('should handle the loginSuccess action correctly', () => {
+      state = state.set('isLoading', true);
+      const result = loginFailedReducer(state);
+      const expectedResult = {
+        isLoading: false,
+        user: null,
+      };
       expect(result.toJS()).toEqual(expectedResult);
     });
   });
 
   describe('loginSuccessAction', () => {
     it('should handle the loginSuccess action correctly', () => {
-      const fixture: User = { id: 1, username: 'test' };
-
+      const payload: User = { id: 1, username: 'test' };
+      const result = loginSuccessReducer(state, { payload });
       const expectedResult = {
         isLoading: false,
-        user: fixture,
+        user: payload,
       };
-
-      const result = reducer(state, actions.loginSuccessAction(fixture));
       expect(result.toJS()).toEqual(expectedResult);
     });
   });

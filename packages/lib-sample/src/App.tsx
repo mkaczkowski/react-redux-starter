@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
-import Auth from 'lib-core/src/ui/auth';
+import Auth from 'lib-core/src/ui/login';
 import Main from './view/main';
 
 // import Hero from './view/hero';

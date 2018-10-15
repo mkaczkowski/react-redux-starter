@@ -3,13 +3,13 @@ import { prepareActions, prepareReducers } from 'lib-core/src/utils/redux';
 import { Action, ActionFunction1 } from 'redux-actions';
 import { createSelector } from 'reselect';
 import { LoginFormPayload } from '../model/form/LoginFormPayload';
-import { ImmutableState } from '../model/State';
+import { ImmutableState, ModuleState } from '../model/State';
 import { User } from '../model/User';
 
 /* ------------- INITIAL STATE ------------- */
 export type LoginState = {
   isLoading: boolean;
-  user: User | null;
+  user?: User | null;
 };
 
 export type State = ImmutableState<LoginState>;
@@ -20,36 +20,49 @@ export const initialState: State = fromJS({
 });
 
 /* ------------- ACTIONS ------------- */
-type LoginActions = {
+export type LoginActions = {
   loginAction: ActionFunction1<LoginFormPayload, Action<LoginFormPayload>>;
   loginSuccessAction: ActionFunction1<User, Action<User>>;
+  loginFailedAction: ActionFunction1<User, Action<any>>;
 };
 
-//prettier-ignore
 export const actions = <LoginActions>prepareActions(
-  {},
-  ['login', true]);
+  {
+    //we can modify payload for action like this:
+    ['loginSuccessAction']: payload => payload.trim().toUpperCase(),
+  },
+  //By default payload is passed unmodified
+  ['login', true, true],
+  // ['login'] :: means only loginAction will be created
+  // ['login' , true ] :: loginAction and loginSuccessAction will be created
+  // ['login' , true, true ] :: loginAction, loginSuccessAction, loginFailedAction
+);
 
 /* ------------- REDUCER ------------- */
-//prettier-ignore
-export const reducer:any = prepareReducers(
+
+/*  login  */
+export const loginReducer = (state: State) => {
+  return state.set('isLoading', true);
+};
+export const loginFailedReducer = (state: State) => {
+  return state.set('isLoading', false);
+};
+export const loginSuccessReducer = (state: State, { payload }: Partial<Action<User>>) => {
+  return state.set('isLoading', false).set('user', payload);
+};
+
+export const reducer: any = prepareReducers(
   {
-    [<any>actions.loginAction]: (state:State) => (
-      state
-        .set('isLoading', true)
-    ),
-    [<any>actions.loginSuccessAction]: (state:State, { payload }:Action<User>) =>
-      state
-        .set('isLoading', false)
-        .set('user', payload || null)
+    [<any>actions.loginAction]: loginReducer,
+    [<any>actions.loginFailedAction]: loginFailedReducer,
+    [<any>actions.loginSuccessAction]: loginSuccessReducer,
   },
-  initialState
+  initialState,
 );
 
 /* ------------- Selectors ------------- */
-//TODO global store type
 export const selectors = {
-  selectLogin: (state: { login: State }): State => state.login,
+  selectLogin: (state: any): State => state.login,
   isLoading: () => createSelector(selectors.selectLogin, (state: State) => state.get('isLoading')),
   getUser: () => createSelector(selectors.selectLogin, (state: State) => state.get('user')),
 };

@@ -1,24 +1,24 @@
 import React from 'react';
 import { render, cleanup } from 'react-testing-library';
-import Auth from '../Auth';
+import Login from '../Login';
 
-describe('Auth - dumb', () => {
+describe('Login - dumb', () => {
   afterEach(cleanup);
 
   it('should display loader', () => {
     const { container } = render(
-      <Auth isLoading={true}>
+      <Login isLoading>
         <div />
-      </Auth>
+      </Login>
     );
     expect(container.firstChild).toMatchSnapshot();
   });
 
   it('should display content', () => {
     const { container } = render(
-      <Auth isLoading={false}>
+      <Login>
         <div />
-      </Auth>
+      </Login>
     );
     expect(container.firstChild).toMatchSnapshot();
   });

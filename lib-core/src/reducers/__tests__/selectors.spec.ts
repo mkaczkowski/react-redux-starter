@@ -1,10 +1,11 @@
 import { fromJS } from 'immutable';
 import { selectors, LoginState } from '../login';
 import { User } from '../../model/User';
+import { ModuleState } from '../../model/Store';
 
 // HELPERS start
 // TODO move to test util
-const prepareGlobalState = (state: LoginState) => ({
+const prepareGlobalState = (state: LoginState): ModuleState => ({
   login: fromJS(state),
 });
 

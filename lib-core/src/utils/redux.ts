@@ -17,7 +17,16 @@ export const actionName = (name: string) => `${toSnakeCase(name)}_ACTION`;
 export const prepareActions = (objectActions: ActionMap<any, any>, ...restActions: Array<any[]>) => {
   // @ts-ignore
   const dynamicActions = _flatten(restActions.map(entry => newAction(...entry)));
-  return createActions(objectActions, ...dynamicActions);
+
+  const tmpObjectActions = { ...objectActions };
+  Object.keys(tmpObjectActions).forEach(key => {
+    const tmpValue = tmpObjectActions[key];
+    delete tmpObjectActions[key];
+    tmpObjectActions[actionName(key)] = tmpValue;
+  });
+
+  // return createActions(objectActions, ...dynamicActions);
+  return createActions(tmpObjectActions, ...dynamicActions);
 };
 
 export const prepareReducers = (actions: any, initialState: Object) => {
