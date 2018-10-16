@@ -2,7 +2,7 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import { push } from 'connected-react-router';
 import { Action } from 'redux-actions';
 import { actions as loginActions } from '../reducers/login';
-import login from '../api/login';
+import { login } from '../api/login';
 import Logger from '../modules/logger';
 import { User } from '../model/User';
 import notify from '../utils/error/errorNotifier';

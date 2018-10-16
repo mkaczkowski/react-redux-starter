@@ -18,9 +18,13 @@
  * logger.timeEnd();
  *
  */
-import CONFIG from 'lib-core/src/config';
-
 const jsLogger = require('js-logger');
+
+function displayDetails() {
+  console.info(`[${CONFIG.productName}]`);
+  console.info(`[v:${CONFIG.version}]`);
+  console.info(`[env:${CONFIG.environment}]`);
+}
 
 export interface ILogger {
   debug: Function;
@@ -32,8 +36,8 @@ export interface ILogger {
 }
 
 export type LogConfig = {
-  browser: boolean,
-  api: boolean,
+  browser: boolean;
+  api: boolean;
 };
 
 export class Logger {
@@ -76,12 +80,6 @@ export class Logger {
   };
 }
 
-function displayDetails() {
-  console.info(`[${CONFIG.productName}]`);
-  console.info(`[v:${CONFIG.version}]`);
-  console.info(`[env:${CONFIG.environment}]`);
-}
-
-window.v = displayDetails;
+// window.v = displayDetails;
 
 export default new Logger();

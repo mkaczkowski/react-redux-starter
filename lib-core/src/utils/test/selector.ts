@@ -1,4 +1,4 @@
-import { fromJS } from 'immutable';
+import { fromJS, Iterable } from 'immutable';
 
 const prepareGlobalState = (state: any): any => {
   const newState = { ...state };
@@ -7,5 +7,10 @@ const prepareGlobalState = (state: any): any => {
   return newState;
 };
 
-export const expectSelector = (state: any) => (selector: any, expectedResult: any) =>
-  expect(selector(prepareGlobalState(state)).toJS()).toEqual(expectedResult);
+export const expectSelector = (state: any) => (selector: any, expectedResult: any) => {
+  const result = selector(prepareGlobalState(state));
+  if (Iterable.isIterable(result)) {
+    return expect(result.toJS()).toEqual(expectedResult);
+  }
+  return expect(result).toEqual(expectedResult);
+};

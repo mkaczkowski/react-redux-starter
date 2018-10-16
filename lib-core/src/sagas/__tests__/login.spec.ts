@@ -3,7 +3,7 @@ import { testSaga } from 'redux-saga-test-plan';
 import { push } from 'connected-react-router';
 import { loginSaga } from '../login';
 import { actions as loginActions } from '../../reducers/login';
-import login from '../../api/login';
+import { login } from '../../api/login';
 import { User } from '../../model/User';
 import notify from '../../utils/error/errorNotifier';
 

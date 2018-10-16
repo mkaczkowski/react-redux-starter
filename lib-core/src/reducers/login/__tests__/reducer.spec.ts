@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import { loginReducer, loginFailedReducer, loginSuccessReducer, State } from '../login';
+import { loginReducer, loginFailedReducer, loginSuccessReducer, State } from '../index';
 import { User } from '../../../model/User';
 
 describe('login reducer', () => {
